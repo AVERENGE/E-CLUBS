@@ -1,0 +1,664 @@
+/* CSS Variables (Theme) */
+:root {
+    /* Colors - Warm Palette */
+    --color-primary: #C85A3C;
+    --color-primary-foreground: #FFF8F3;
+    
+    --color-accent: #8BA888;
+    --color-accent-foreground: #1A1612;
+    
+    --color-secondary: #D4A574;
+    --color-secondary-foreground: #1A1612;
+    
+    --color-background: #FFF8F3;
+    --color-foreground: #1A1612;
+    --color-card: #FFFFFF;
+    --color-muted: #F5EDE6;
+    --color-muted-foreground: #6B645C;
+    --color-border: #E8DDD3;
+    
+    --color-destructive: #D84315;
+    --color-destructive-foreground: #FFFFFF;
+    
+    --color-success: #6B8E23;
+    --color-success-foreground: #FFFFFF;
+    
+    /* Fonts */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* Typography */
+.display-text {
+    font-family: var(--font-display);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.display-text.mega {
+    font-size: 3.5rem;
+}
+
+.display-text.large {
+    font-size: 2.5rem;
+}
+
+.display-text.medium {
+    font-size: 2rem;
+}
+
+.display-text.small {
+    font-size: 1.5rem;
+}
+
+.body-text {
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+.body-text.large {
+    font-size: 1.25rem;
+}
+
+.body-text.medium {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.body-text.small {
+    font-size: 0.875rem;
+}
+
+.label-text {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.label-text.small {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Text Utilities */
+.text-destructive {
+    color: var(--color-destructive) !important;
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.muted {
+    color: var(--color-muted-foreground);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.completed-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Header */
+.app-header {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+    border-bottom: 4px solid var(--color-primary);
+}
+
+.header-content {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-btn {
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 248, 243, 0.1);
+}
+
+.notification-bell {
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(26, 22, 18, 0.1);
+}
+
+.user-info {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .user-info {
+        display: block;
+    }
+}
+
+.notifications-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    width: 24rem;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: 2px solid var(--color-border);
+    box-shadow: 8px 8px 0px 0px rgba(26, 22, 18, 1);
+    z-index: 50;
+}
+
+.notifications-dropdown.show {
+    display: block;
+}
+
+.notifications-header {
+    padding: 1rem;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+}
+
+.notifications-header button {
+    background: transparent;
+    border: none;
+    color: var(--color-primary-foreground);
+    cursor: pointer;
+}
+
+.notifications-header button:hover {
+    text-decoration: underline;
+}
+
+.notifications-list {
+    max-height: 24rem;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 1rem;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background-color: rgba(245, 237, 230, 0.5);
+}
+
+.notification-item.unread {
+    background-color: var(--color-background);
+}
+
+.notification-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+
+.notification-dot.read {
+    background-color: var(--color-border);
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notifications-footer {
+    padding: 1rem;
+    border-top: 2px solid var(--color-border);
+    background-color: var(--color-muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notifications-footer button,
+.notifications-footer a {
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.notifications-footer a {
+    display: inline-block;
+}
+
+/* Avatar */
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-background);
+    flex-shrink: 0;
+}
+
+.avatar-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+}
+
+/* Main Content */
+.main-content {
+    padding: 1.5rem;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h2 {
+    margin-bottom: 0.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stats-grid.tasks-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stat-card {
+    padding: 1.5rem;
+    border: 2px solid var(--color-border);
+    text-align: center;
+}
+
+.stat-card p {
+    margin: 0;
+}
+
+.stat-card .display-text {
+    margin-bottom: 0.25rem;
+}
+
+.stat-card.primary {
+    background-color: rgba(200, 90, 60, 0.05);
+    border-color: var(--color-primary);
+}
+
+.stat-card.destructive {
+    background-color: rgba(216, 67, 21, 0.05);
+    border-color: var(--color-destructive);
+}
+
+.stat-card.secondary {
+    background-color: rgba(107, 142, 35, 0.05);
+    border-color: var(--color-success);
+}
+
+.stat-card.neutral {
+    background-color: var(--color-muted);
+    border-color: var(--color-border);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--color-background);
+    border: 2px solid var(--color-border);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--color-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tab:hover {
+    border-color: var(--color-foreground);
+}
+
+.tab.active {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-color: var(--color-foreground);
+}
+
+/* Tasks List */
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-card {
+    background-color: var(--color-card);
+    border: 2px solid var(--color-border);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.task-card.completed {
+    opacity: 0.75;
+    background-color: var(--color-muted);
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.task-header h3 {
+    margin: 0;
+    flex: 1;
+}
+
+.task-card p {
+    margin: 0 0 1rem 0;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+    margin-top: 1rem;
+}
+
+.task-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-progress {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-border);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Border Colors */
+.border-primary {
+    border-left: 4px solid var(--color-primary) !important;
+}
+
+.border-accent {
+    border-left: 4px solid var(--color-accent) !important;
+}
+
+.border-destructive {
+    border-left: 4px solid var(--color-destructive) !important;
+}
+
+.border-success {
+    border-left: 4px solid var(--color-success) !important;
+}
+
+/* Badges */
+.badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.625rem;
+    font-weight: bold;
+    font-family: var(--font-sans);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.badge-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+}
+
+.badge-destructive {
+    background-color: var(--color-destructive);
+    color: var(--color-destructive-foreground);
+}
+
+.badge-medium {
+    background-color: rgba(200, 90, 60, 0.15);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.badge-low {
+    background-color: rgba(139, 168, 136, 0.3);
+    border: 1px solid var(--color-accent);
+    color: var(--color-foreground);
+}
+
+.badge-success {
+    background-color: var(--color-success);
+    color: var(--color-success-foreground);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-border);
+    background-color: var(--color-background);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    width: 100%;
+}
+
+.btn:hover {
+    border-color: var(--color-foreground);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-color: var(--color-foreground);
+    box-shadow: 2px 2px 0px 0px rgba(26, 22, 18, 1);
+}
+
+.btn-primary:hover {
+    box-shadow: 4px 4px 0px 0px rgba(26, 22, 18, 1);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-background);
+    border: 2px solid var(--color-border);
+    color: var(--color-foreground);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-foreground);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .task-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .task-actions {
+        min-width: 140px;
+        max-width: 140px;
+        flex-shrink: 0;
+    }
+    
+    .tasks-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+}
+
+@media (min-width: 1024px) {
+    .display-text.mega {
+        font-size: 5rem;
+    }
+    
+    .main-content {
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .display-text.mega {
+        font-size: 6rem;
+    }
+}

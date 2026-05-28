@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Club - My Tasks</title>
+    <link rel="stylesheet" href="Task.CSS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tasks Screen -->
+    <div id="tasks-screen" class="screen active">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="../DONATICS.HTML" class="icon-btn">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                    <h1 class="display-text medium">E-CLUB</h1>
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <button class="icon-btn" onclick="toggleNotifications()">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                            <span class="notification-badge"></span>
+                        </button>
+                        <div id="notifications-dropdown" class="notifications-dropdown">
+                            <div class="notifications-header">
+                                <h3 class="display-text small">NOTIFICATIONS</h3>
+                                <button class="label-text tiny">MARK ALL AS READ</button>
+                            </div>
+                            <div class="notifications-list">
+                                <div class="notification-item unread">
+                                    <div class="notification-dot"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold">New Task Assigned</p>
+                                        <p class="body-text tiny muted">You have 1 new task waiting in My Tasks.</p>
+                                        <span class="body-text tiny muted">5 min ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <div class="notification-dot"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold">Weekly Meeting Reminder</p>
+                                        <p class="body-text tiny muted">Your next meeting starts in 2 hours.</p>
+                                        <span class="body-text tiny muted">1 hour ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-dot read"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold muted">Task Completed</p>
+                                        <p class="body-text tiny muted">A task was marked done by your teammate.</p>
+                                        <span class="body-text tiny muted">3 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notifications-footer">
+                                <a href="../DONATICS.HTML#announcements-screen" class="link-text small bold">VIEW ALL NOTIFICATIONS →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar avatar-primary">
+                            <span class="label-text small">JD</span>
+                        </div>
+                        <div class="user-info">
+                            <p class="label-text small bold">John Doe</p>
+                            <p class="body-text tiny light">Student Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2 class="display-text mega">MY TASKS</h2>
+                <p class="body-text large muted">
+                    Manage your assignments and track submission deadlines.
+                </p>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="stats-grid tasks-stats">
+                <div class="stat-card primary">
+                    <p class="display-text large" id="active-count">3</p>
+                    <p class="label-text small uppercase">ACTIVE TASKS</p>
+                </div>
+                <div class="stat-card destructive">
+                    <p class="display-text large text-destructive" id="due-week-count">2</p>
+                    <p class="label-text small uppercase">DUE THIS WEEK</p>
+                </div>
+                <div class="stat-card secondary">
+                    <p class="display-text large" id="completed-count">5</p>
+                    <p class="label-text small uppercase">COMPLETED</p>
+                </div>
+                <div class="stat-card neutral">
+                    <p class="display-text large">0</p>
+                    <p class="label-text small uppercase">OVERDUE</p>
+                </div>
+            </div>
+
+            <!-- Task Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="filterTasks('active')">ACTIVE</button>
+                <button class="tab" onclick="filterTasks('completed')">COMPLETED</button>
+                <button class="tab" onclick="filterTasks('all')">ALL</button>
+            </div>
+
+            <!-- Tasks List -->
+            <div class="tasks-list">
+                <!-- Active Task 1 - URGENT -->
+                <div class="task-card border-destructive" data-status="active">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small">DESIGN HACKATHON POSTERS</h3>
+                            <span class="badge badge-destructive">URGENT</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Create promotional posters for Hackathon 2026. Need 3 different designs in both digital and print formats. Submit files in PDF and PNG.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Due: May 20, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: Alice Martinez
+                            </span>
+                            <span class="text-destructive bold">⚠ 1 day left</span>
+                        </div>
+                        <div class="task-progress">
+                            <div class="progress-header">
+                                <span class="label-text small uppercase">Progress</span>
+                                <span class="label-text small bold">60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill bg-primary" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-primary">
+                            <span class="label-text small bold">SUBMIT</span>
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">DETAILS</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Task 2 - MEDIUM -->
+                <div class="task-card border-primary" data-status="active">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small">MEETING MINUTES - WEEK 20</h3>
+                            <span class="badge badge-medium">MEDIUM</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Document and organize notes from the weekly meeting on May 14th. Include action items, decisions made, and attendance record.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Due: May 21, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 7 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: Club Secretary
+                            </span>
+                            <span class="text-primary bold">2 days left</span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-primary">
+                            <span class="label-text small bold">SUBMIT</span>
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">DETAILS</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Task 3 - LOW -->
+                <div class="task-card border-accent" data-status="active">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small">SOCIAL MEDIA CONTENT</h3>
+                            <span class="badge badge-low">LOW</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Create 5 social media posts promoting upcoming events. Include captions, hashtags, and suggested posting schedule.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Due: May 30, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: VP Communications
+                            </span>
+                            <span class="muted">11 days left</span>
+                        </div>
+                        <div class="task-progress">
+                            <div class="progress-header">
+                                <span class="label-text small uppercase">Progress</span>
+                                <span class="label-text small bold">25%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill bg-accent" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-primary">
+                            <span class="label-text small bold">SUBMIT</span>
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">DETAILS</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Completed Task 1 -->
+                <div class="task-card border-success completed" data-status="completed">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small completed-text">UPDATE CLUB WEBSITE</h3>
+                            <span class="badge badge-success">COMPLETED</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Refresh the club website with new member photos, update event calendar, and add recent project showcases to the portfolio section.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Completed: May 15, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: President
+                            </span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">VIEW</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Completed Task 2 -->
+                <div class="task-card border-success completed" data-status="completed">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small completed-text">BUDGET REPORT Q2</h3>
+                            <span class="badge badge-success">COMPLETED</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Compile comprehensive budget report for Q2 including all expenses, revenue, and projections for Q3. Present to advisor for approval.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Completed: May 12, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: Treasurer
+                            </span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">VIEW</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Completed Task 3 -->
+                <div class="task-card border-success completed" data-status="completed">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small completed-text">RECRUIT WORKSHOP SPEAKERS</h3>
+                            <span class="badge badge-success">COMPLETED</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Contact and confirm 3 industry professionals to speak at our React workshop series. Coordinate schedules and technical requirements.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Completed: May 10, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: Events Coordinator
+                            </span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">VIEW</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Completed Task 4 -->
+                <div class="task-card border-success completed" data-status="completed">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small completed-text">ORGANIZE TEAM BUILDING EVENT</h3>
+                            <span class="badge badge-success">COMPLETED</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Plan and execute team building activity for all club members. Secure venue, organize activities, and manage RSVPs.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Completed: May 8, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: Social Chair
+                            </span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">VIEW</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Completed Task 5 -->
+                <div class="task-card border-success completed" data-status="completed">
+                    <div class="task-content">
+                        <div class="task-header">
+                            <h3 class="display-text small completed-text">MEMBERSHIP DRIVE CAMPAIGN</h3>
+                            <span class="badge badge-success">COMPLETED</span>
+                        </div>
+                        <p class="body-text medium muted">
+                            Design and distribute promotional materials for spring membership drive. Create digital flyers and table displays for student center.
+                        </p>
+                        <div class="task-meta">
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Completed: May 5, 2026
+                            </span>
+                            <span class="task-meta-item">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                Assigned by: VP Marketing
+                            </span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-secondary">
+                            <span class="label-text small bold">VIEW</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Filter tasks by status
+        function filterTasks(status) {
+            // Update active tab
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter tasks
+            const tasks = document.querySelectorAll('.task-card');
+            tasks.forEach(task => {
+                if (status === 'all') {
+                    task.style.display = 'flex';
+                } else {
+                    if (task.getAttribute('data-status') === status) {
+                        task.style.display = 'flex';
+                    } else {
+                        task.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Update counts on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            updateTaskCounts();
+        });
+
+        // Function to update task counts
+        function updateTaskCounts() {
+            const activeTasks = document.querySelectorAll('.task-card[data-status="active"]').length;
+            const completedTasks = document.querySelectorAll('.task-card[data-status="completed"]').length;
+
+            document.getElementById('active-count').textContent = activeTasks;
+            document.getElementById('completed-count').textContent = completedTasks;
+        }
+
+        function toggleNotifications(dropdownId = 'notifications-dropdown') {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            dropdown.classList.toggle('show');
+        }
+
+        document.addEventListener('click', function(event) {
+            const openDropdowns = document.querySelectorAll('.notifications-dropdown.show');
+            openDropdowns.forEach(dropdown => {
+                const bell = dropdown.closest('.notification-bell');
+                if (bell && !bell.contains(event.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

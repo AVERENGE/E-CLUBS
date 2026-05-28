@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Club - Dashboard</title>
+    <link rel="stylesheet" href="Club.CSS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="screen active">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="display-text medium">E-CLUB</h1>
+                    <div class="breadcrumb">
+                        <span class="body-text small">→</span>
+                        <span class="body-text small light">DONATICS</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <button class="icon-btn" onclick="toggleNotifications()">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                            <span class="notification-badge"></span>
+                        </button>
+                        <div id="notifications-dropdown" class="notifications-dropdown">
+                            <div class="notifications-header">
+                                <h3 class="display-text small">NOTIFICATIONS</h3>
+                                <button class="label-text tiny">MARK ALL AS READ</button>
+                            </div>
+                            <div class="notifications-list">
+                                <div class="notification-item unread">
+                                    <div class="notification-dot"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold">New Task Assigned</p>
+                                        <p class="body-text tiny muted">You've been assigned "Design Club Poster"</p>
+                                        <span class="body-text tiny muted">5 min ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <div class="notification-dot"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold">Event Reminder</p>
+                                        <p class="body-text tiny muted">Weekly Meeting starts in 2 hours</p>
+                                        <span class="body-text tiny muted">1 hour ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-dot read"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold muted">Task Completed</p>
+                                        <p class="body-text tiny muted">Sarah marked "Update Website" as done</p>
+                                        <span class="body-text tiny muted">3 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notifications-footer">
+                                <button class="link-text small bold" onclick="showScreen('announcements-screen')">VIEW ALL NOTIFICATIONS →</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar avatar-primary">
+                            <span class="label-text small">JD</span>
+                        </div>
+                        <div class="user-info">
+                            <p class="label-text small bold">John Doe</p>
+                            <p class="body-text tiny light">Student Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2 class="display-text mega">DASHBOARD</h2>
+                <p class="body-text large muted">
+                    Welcome back, John! Here's what's happening in your club.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card accent">
+                    <p class="label-text small uppercase">PENDING TASKS</p>
+                    <p class="display-text large">3</p>
+                    <p class="body-text small muted">2 due this week</p>
+                </div>
+                <div class="stat-card secondary">
+                    <p class="label-text small uppercase">UNREAD MESSAGES</p>
+                    <p class="display-text large">8</p>
+                    <p class="body-text small muted">4 new announcements</p>
+                </div>
+                <div class="stat-card neutral">
+                    <p class="label-text small uppercase">NEXT EVENT</p>
+                    <p class="display-text large">2</p>
+                    <p class="body-text small muted">days away</p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-main">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="display-text medium">RECENT ANNOUNCEMENTS</h3>
+                            <button class="link-text small uppercase" onclick="showScreen('announcements-screen')">VIEW ALL →</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="announcement-item">
+                                <div class="announcement-meta">
+                                    <span class="badge badge-primary">URGENT</span>
+                                    <span class="body-text small muted">2 hours ago</span>
+                                </div>
+                                <h4 class="label-text medium bold">Hackathon Registration Deadline Extended</h4>
+                                <p class="body-text small muted">
+                                    Due to popular demand, we've extended the registration deadline to Friday, May 23rd. Don't miss out on this opportunity!
+                                </p>
+                            </div>
+                            <div class="announcement-item">
+                                <div class="announcement-meta">
+                                    <span class="badge badge-secondary">EVENT</span>
+                                    <span class="body-text small muted">1 day ago</span>
+                                </div>
+                                <h4 class="label-text medium bold">Weekly Meeting - May 21st</h4>
+                                <p class="body-text small muted">
+                                    Our weekly meeting will be held in Room 204, Engineering Building at 6:00 PM. Attendance is mandatory for officers.
+                                </p>
+                            </div>
+                            <div class="announcement-item">
+                                <div class="announcement-meta">
+                                    <span class="badge badge-accent">INFO</span>
+                                    <span class="body-text small muted">3 days ago</span>
+                                </div>
+                                <h4 class="label-text medium bold">New Club Merchandise Available</h4>
+                                <p class="body-text small muted">
+                                    Check out our new t-shirts and hoodies! Orders are now being taken through the club portal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-sidebar">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="display-text medium">QUICK ACTIONS</h3>
+                        </div>
+                        <div class="card-body actions">
+                            <a href="TASK_and_Message/Task.HTML" class="btn btn-primary btn-block">
+                                <span class="label-text small bold">MY TASKS</span>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <button class="btn btn-secondary btn-block">
+                                <span class="label-text small bold">MESSAGES</span>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="display-text small">UPCOMING</h3>
+                        </div>
+                        <div class="card-body events">
+                            <div class="event-item border-primary">
+                                <p class="label-text small bold">Weekly Meeting</p>
+                                <p class="body-text small muted">May 21, 6:00 PM</p>
+                            </div>
+                            <div class="event-item border-accent">
+                                <p class="label-text small bold">Hackathon 2026</p>
+                                <p class="body-text small muted">May 24-25</p>
+                            </div>
+                            <div class="event-item border-secondary">
+                                <p class="label-text small bold">Workshop: React Basics</p>
+                                <p class="body-text small muted">May 30, 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card"> 
+                    <div class="card-header calendar-header"> 
+                        <button class="icon-btn-small"> ◀ </button>
+                        <h3 class="display-text small"> CALENDAR </h3> 
+                        <button class="icon-btn-small"> ▶ </button> </div> 
+                    
+                    <div class="card-body">    
+                        <!-- Controls --> 
+                        <div class="calendar-controls" 
+                        style="display:flex; 
+                        gap:8px; 
+                        margin-bottom:10px; 
+                        justify-content:center; 
+                        flex-wrap:wrap;"> 
+
+                        <select id="month-select" 
+                        style="padding:6px; 
+                        border-radius:8px;"> </select> 
+                        
+                        <select id="year-select" 
+                        style="padding:6px; 
+                        border-radius:8px;"> </select> 
+                        </div> 
+                    
+                    <!-- Calendar --> 
+                     <div class="calendar"> <div class="calendar-days">
+                     <div class="calendar-day-header">S</div> 
+                     <div class="calendar-day-header">M</div> 
+                     <div class="calendar-day-header">T</div> 
+                     <div class="calendar-day-header">W</div> 
+                     <div class="calendar-day-header">T</div> 
+                     <div class="calendar-day-header">F</div> 
+                     <div class="calendar-day-header">S</div> 
+        </div>       
+            <div class="calendar-grid" id="calendar-grid">
+                </div> 
+                    </div> 
+
+                    <!-- Add Schedule --> 
+                    <div style="margin-top:15px;"> 
+                        <h4 style="margin-bottom:8px;"> Create Schedule </h4> 
+
+                        <input id="schedule-date" type="date" 
+                        style="padding:8px; 
+                        width:100%; 
+                        margin-bottom:8px; 
+                        border-radius:8px;">
+
+                        <input id="schedule-title" type="text" placeholder="Enter activity or schedule" 
+                        style="padding:8px; 
+                            width:100%; 
+                            margin-bottom:8px; 
+                            border-radius:8px;">
+
+                        <button onclick="addSchedule()" style="
+                            width:100%; 
+                            padding:10px; 
+                            border:none; 
+                            border-radius:10px; 
+                            cursor:pointer; 
+                            background:#C85A3C; 
+                            color:white;"> Add Schedule </button> 
+                    </div> 
+                    <!-- Schedule List --> 
+                    <div id="schedule-list" style="margin-top:15px;"> 
+
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </main> 
+</div>
+
+        <!-- Announcements Screen -->
+    <div id="announcements-screen" class="screen">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="icon-btn" onclick="showScreen('dashboard-screen')">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <h1 class="display-text medium">E-CLUB</h1>
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <button class="icon-btn" onclick="toggleNotifications('notifications-dropdown-announcements')">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                            <span class="notification-badge"></span>
+                        </button>
+                        <div id="notifications-dropdown-announcements" class="notifications-dropdown">
+                            <div class="notifications-header">
+                                <h3 class="display-text small">NOTIFICATIONS</h3>
+                                <button class="label-text tiny">MARK ALL AS READ</button>
+                            </div>
+                            <div class="notifications-list">
+                                <div class="notification-item unread">
+                                    <div class="notification-dot"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold">New task added</p>
+                                        <p class="body-text tiny muted">A new announcement task is available.</p>
+                                        <span class="body-text tiny muted">10 min ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <div class="notification-dot"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold">Event reminder</p>
+                                        <p class="body-text tiny muted">Don't miss the May 21st meeting.</p>
+                                        <span class="body-text tiny muted">30 min ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-dot read"></div>
+                                    <div class="notification-content">
+                                        <p class="label-text small bold muted">Info update</p>
+                                        <p class="body-text tiny muted">New merch details were posted.</p>
+                                        <span class="body-text tiny muted">4 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notifications-footer">
+                                <button class="link-text small bold" onclick="showScreen('announcements-screen')">VIEW ALL NOTIFICATIONS →</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar avatar-primary">
+                            <span class="label-text small">JD</span>
+                        </div>
+                        <div class="user-info">
+                            <p class="label-text small bold">John Doe</p>
+                            <p class="body-text tiny light">Student Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2 class="display-text mega">ANNOUNCEMENTS</h2>
+                <p class="body-text large muted">
+                    Stay updated with the latest club news and important information.
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="filterAnnouncements(event, 'all')">ALL</button>
+                <button class="tab" onclick="filterAnnouncements(event, 'urgent')">URGENT</button>
+                <button class="tab" onclick="filterAnnouncements(event, 'event')">EVENTS</button>
+                <button class="tab" onclick="filterAnnouncements(event, 'info')">INFO</button>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcements-list">
+                <!-- Announcement 1 - URGENT -->
+                <div class="announcement-card border-primary" data-type="urgent">
+                    <div class="announcement-header">
+                        <div class="author-info">
+                            <div class="avatar avatar-primary-light">
+                                <span class="label-text tiny">CO</span>
+                            </div>
+                            <div>
+                                <p class="label-text small bold">Club Officer</p>
+                                <p class="body-text small muted">2 hours ago</p>
+                            </div>
+                        </div>
+                        <span class="badge badge-primary">URGENT</span>
+                    </div>
+                    <h3 class="display-text small">HACKATHON REGISTRATION DEADLINE EXTENDED</h3>
+                    <p class="body-text medium muted">
+                        Great news everyone! Due to popular demand and several requests, we've decided to extend the registration deadline for our annual Hackathon 2026 to Friday, May 23rd at 11:59 PM. This gives you 3 more days to form your teams and sign up!
+                    </p>
+                    <div class="announcement-footer">
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="label-text small">24</span>
+                        </button>
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="label-text small">12 Comments</span>
+                        </button>
+                        <span class="body-text small read-count">✓ Read by 142 members</span>
+                    </div>
+                </div>
+
+                <!-- Announcement 2 - EVENT -->
+                <div class="announcement-card border-secondary" data-type="event">
+                    <div class="announcement-header">
+                        <div class="author-info">
+                            <div class="avatar avatar-secondary-light">
+                                <span class="label-text tiny">AM</span>
+                            </div>
+                            <div>
+                                <p class="label-text small bold">Alice Martinez</p>
+                                <p class="body-text small muted">1 day ago</p>
+                            </div>
+                        </div>
+                        <span class="badge badge-secondary">EVENT</span>
+                    </div>
+                    <h3 class="display-text small">WEEKLY MEETING - MAY 21ST</h3>
+                    <p class="body-text medium muted">
+                        Our weekly meeting will be held in Room 204, Engineering Building at 6:00 PM. Agenda includes: 1) Hackathon planning updates, 2) Budget review for Q2, 3) New member onboarding process. Attendance is mandatory for all officers. Pizza will be provided!
+                    </p>
+                    <div class="event-details">
+                        <div class="event-detail-item">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="label-text small bold">Wednesday, May 21, 2026 at 6:00 PM</span>
+                        </div>
+                        <div class="event-detail-item">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="body-text small">Room 204, Engineering Building</span>
+                        </div>
+                    </div>
+                    <div class="announcement-footer">
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="label-text small">38</span>
+                        </button>
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="label-text small">7 Comments</span>
+                        </button>
+                        <span class="body-text small read-count">✓ Read by 98 members</span>
+                    </div>
+                </div>
+
+                <!-- Announcement 3 - INFO -->
+                <div class="announcement-card border-accent" data-type="info">
+                    <div class="announcement-header">
+                        <div class="author-info">
+                            <div class="avatar avatar-accent-light">
+                                <span class="label-text tiny">VP</span>
+                            </div>
+                            <div>
+                                <p class="label-text small bold">Vice President</p>
+                                <p class="body-text small muted">3 days ago</p>
+                            </div>
+                        </div>
+                        <span class="badge badge-accent">INFO</span>
+                    </div>
+                    <h3 class="display-text small">NEW CLUB MERCHANDISE AVAILABLE</h3>
+                    <p class="body-text medium muted">
+                        Exciting news! Our new club merchandise collection is now available for order. We have t-shirts, hoodies, stickers, and laptop sleeves featuring our updated logo. All proceeds go towards funding club activities and events. Orders close on May 25th.
+                    </p>
+                    <div class="announcement-footer">
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="label-text small">56</span>
+                        </button>
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="label-text small">23 Comments</span>
+                        </button>
+                        <span class="body-text small read-count">✓ Read by 167 members</span>
+                    </div>
+                </div>
+
+                <!-- Announcement 4 - URGENT -->
+                <div class="announcement-card border-primary" data-type="urgent">
+                    <div class="announcement-header">
+                        <div class="author-info">
+                            <div class="avatar avatar-primary-light">
+                                <span class="label-text tiny">PR</span>
+                            </div>
+                            <div>
+                                <p class="label-text small bold">President</p>
+                                <p class="body-text small muted">5 days ago</p>
+                            </div>
+                        </div>
+                        <span class="badge badge-primary">URGENT</span>
+                    </div>
+                    <h3 class="display-text small">ACTION REQUIRED: BUDGET APPROVAL DEADLINE</h3>
+                    <p class="body-text medium muted">
+                        All committee heads must submit their Q3 budget proposals by May 22nd. This is a hard deadline as we need to present to the student council on May 24th. Please use the standardized budget template available in the shared drive.
+                    </p>
+                    <div class="announcement-footer">
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="label-text small">18</span>
+                        </button>
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="label-text small">9 Comments</span>
+                        </button>
+                        <span class="body-text small read-count">✓ Read by 89 members</span>
+                    </div>
+                </div>
+
+                <!-- Announcement 5 - EVENT -->
+                <div class="announcement-card border-secondary" data-type="event">
+                    <div class="announcement-header">
+                        <div class="author-info">
+                            <div class="avatar avatar-secondary-light">
+                                <span class="label-text tiny">EC</span>
+                            </div>
+                            <div>
+                                <p class="label-text small bold">Events Coordinator</p>
+                                <p class="body-text small muted">1 week ago</p>
+                            </div>
+                        </div>
+                        <span class="badge badge-secondary">EVENT</span>
+                    </div>
+                    <h3 class="display-text small">ANNUAL HACKATHON 2026 - MAY 24-25</h3>
+                    <p class="body-text medium muted">
+                        Mark your calendars! Our biggest event of the year is coming up. 36-hour coding marathon with prizes, workshops, networking opportunities, and free food throughout. Registration is now open. Teams of 1-4 members accepted.
+                    </p>
+                    <div class="event-details">
+                        <div class="event-detail-item">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="label-text small bold">May 24-25, 2026 (36 hours)</span>
+                        </div>
+                        <div class="event-detail-item">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="body-text small">Student Center, Main Hall</span>
+                        </div>
+                    </div>
+                    <div class="announcement-footer">
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="label-text small">92</span>
+                        </button>
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="label-text small">34 Comments</span>
+                        </button>
+                        <span class="body-text small read-count">✓ Read by 203 members</span>
+                    </div>
+                </div>
+
+                <!-- Announcement 6 - INFO -->
+                <div class="announcement-card border-accent" data-type="info">
+                    <div class="announcement-header">
+                        <div class="author-info">
+                            <div class="avatar avatar-accent-light">
+                                <span class="label-text tiny">SC</span>
+                            </div>
+                            <div>
+                                <p class="label-text small bold">Social Chair</p>
+                                <p class="body-text small muted">1 week ago</p>
+                            </div>
+                        </div>
+                        <span class="badge badge-accent">INFO</span>
+                    </div>
+                    <h3 class="display-text small">SOCIAL MEDIA TAKEOVER - FOLLOW US!</h3>
+                    <p class="body-text medium muted">
+                        We're revamping our social media presence! Follow us @CSClubUni on Instagram, Twitter, and LinkedIn for daily tech tips, member spotlights, event updates, and behind-the-scenes content. Tag us in your project posts!
+                    </p>
+                    <div class="announcement-footer">
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="label-text small">67</span>
+                        </button>
+                        <button class="interaction-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="label-text small">15 Comments</span>
+                        </button>
+                        <span class="body-text small read-count">✓ Read by 124 members</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    
+
+    <script>
+
+        
+        // Notifications dropdown toggle
+        function toggleNotifications(dropdownId = 'notifications-dropdown') {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            dropdown.classList.toggle('show');
+        }
+
+        // Close notifications when clicking outside
+        document.addEventListener('click', function(event) {
+            const openDropdowns = document.querySelectorAll('.notifications-dropdown.show');
+            openDropdowns.forEach(dropdown => {
+                const bell = dropdown.closest('.notification-bell');
+                if (bell && !bell.contains(event.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+
+        // Switch between dashboard and announcements screens
+        function showScreen(screenId) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            const targetScreen = document.getElementById(screenId);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash) {
+                const screenId = window.location.hash.substring(1);
+                if (document.getElementById(screenId)) {
+                    showScreen(screenId);
+                }
+            }
+        });
+
+        // Filter announcements by type
+        function filterAnnouncements(event, type) {
+            // Update active tab
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Filter announcements
+            const announcements = document.querySelectorAll('.announcement-card');
+            announcements.forEach(announcement => {
+                if (type === 'all' || announcement.getAttribute('data-type') === type) {
+                    announcement.style.display = 'block';
+                } else {
+                    announcement.style.display = 'none';
+                }
+            });
+        }
+
+        const calendarGrid =
+    document.getElementById("calendar-grid");
+
+const monthSelect =
+    document.getElementById("month-select");
+
+const yearSelect =
+    document.getElementById("year-select");
+
+const months = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+];
+
+let currentDate = new Date();
+let currentMonth = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
+
+// Populate months
+months.forEach((month, index) => {
+
+    const option =
+        document.createElement("option");
+
+    option.value = index;
+    option.textContent = month;
+
+    monthSelect.appendChild(option);
+});
+
+// Populate years
+for (let year = 2020; year <= 2035; year++) {
+
+    const option =
+        document.createElement("option");
+
+    option.value = year;
+    option.textContent = year;
+
+    yearSelect.appendChild(option);
+}
+
+monthSelect.value = currentMonth;
+yearSelect.value = currentYear;
+
+// Initial render on page load
+renderCalendar(currentMonth, currentYear);
+
+function renderCalendar(month, year) {
+
+    calendarGrid.innerHTML = "";
+
+    const firstDay =
+        new Date(year, month, 1).getDay();
+
+    const totalDays =
+        new Date(year, month + 1, 0).getDate();
+
+    // Empty spaces
+    for (let i = 0; i < firstDay; i++) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.className = "calendar-date empty";
+
+        calendarGrid.appendChild(empty);
+    }
+
+    const schedules =
+        JSON.parse(localStorage.getItem("donaticsSchedules")) || {};
+
+    // Dates
+    for (let day = 1; day <= totalDays; day++) {
+
+        const dateDiv =
+            document.createElement("div");
+
+        dateDiv.className = "calendar-date";
+        dateDiv.textContent = day;
+
+        const today = new Date();
+
+        if (
+            day === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear()
+        ) {
+            dateDiv.classList.add("today");
+        }
+
+        const dateKey =
+            `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+        if (schedules[dateKey]) {
+
+            dateDiv.classList.add("event");
+
+            dateDiv.title =
+                schedules[dateKey].join(", ");
+        }
+
+        calendarGrid.appendChild(dateDiv);
+    }
+
+    displaySchedules();
+}
+
+// Change month
+monthSelect.addEventListener("change", () => {
+
+    currentMonth =
+        parseInt(monthSelect.value);
+
+    renderCalendar(currentMonth, currentYear);
+});
+
+// Change year
+yearSelect.addEventListener("change", () => {
+
+    currentYear =
+        parseInt(yearSelect.value);
+
+    renderCalendar(currentMonth, currentYear);
+});
+
+// Add Schedule
+function addSchedule() {
+
+    const date =
+        document.getElementById("schedule-date").value;
+
+    const title =
+        document.getElementById("schedule-title").value;
+
+    if (!date || !title) {
+
+        alert("Please enter a date and schedule.");
+
+        return;
+    }
+
+    const schedules =
+        JSON.parse(localStorage.getItem("donaticsSchedules")) || {};
+
+    if (!schedules[date]) {
+        schedules[date] = [];
+    }
+
+    schedules[date].push(title);
+
+    localStorage.setItem(
+        "donaticsSchedules",
+        JSON.stringify(schedules)
+    );
+
+    document.getElementById("schedule-title").value = "";
+
+    renderCalendar(currentMonth, currentYear);
+}
+
+// Remove Schedule
+function removeSchedule(date, item) {
+
+    const schedules =
+        JSON.parse(localStorage.getItem("donaticsSchedules")) || {};
+
+    if (schedules[date]) {
+
+        schedules[date] =
+            schedules[date].filter(
+                schedule => schedule !== item
+            );
+
+        if (schedules[date].length === 0) {
+            delete schedules[date];
+        }
+
+        localStorage.setItem(
+            "donaticsSchedules",
+            JSON.stringify(schedules)
+        );
+
+        renderCalendar(currentMonth, currentYear);
+    }
+}
+
+// Display Schedules
+function displaySchedules() {
+
+    const list =
+        document.getElementById("schedule-list");
+
+    const schedules =
+        JSON.parse(localStorage.getItem("donaticsSchedules")) || {};
+
+    list.innerHTML = "<h4>Saved Schedules</h4>";
+
+    Object.keys(schedules).sort().forEach(date => {
+
+        schedules[date].forEach(item => {
+
+            const div =
+                document.createElement("div");
+
+            div.style.padding = "8px";
+            div.style.marginTop = "6px";
+            div.style.borderRadius = "8px";
+            div.style.background = "#f3f4f6";
+
+            div.innerHTML = `
+                <div style="display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            gap:10px;">
+
+                    <div>
+                        <strong>${date}</strong><br>
+                        ${item}
+                    </div>
+
+                    <button
+                        onclick="removeSchedule('${date}', '${item}')"
+
+                        style="padding:6px 10px;
+                               border:none;
+                               border-radius:8px;
+                               cursor:pointer;
+                               background:#dc2626;
+                               color:white;">
+
+                        Remove
+                    </button>
+                </div>
+            `;
+
+            list.appendChild(div);
+        });
+    });
+}
+    </script>
+</body>
+</html>

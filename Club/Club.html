@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Club - Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="split-layout">
+            <!-- Left Side - Branding -->
+            <div class="branding-side">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+
+                <div class="branding-content">
+                    <div class="branding-header">
+                        <h1 class="display-text mega">E-CLUB</h1>
+                        <div class="accent-line"></div>
+                    </div>
+
+                    <div class="branding-message">
+                        <h2 class="display-text large">
+                            MANAGE YOUR<br>
+                            CLUB WITH<br>
+                            <span class="text-primary">CONFIDENCE</span>
+                        </h2>
+                        <p class="body-text large light">
+                            Streamline communication, track attendance, manage tasks, and keep everyone connected.
+                        </p>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-item primary-border">
+                            <p class="display-text medium">250+</p>
+                            <p class="label-text">Active Clubs</p>
+                        </div>
+                        <div class="stat-item accent-border">
+                            <p class="display-text medium">5K+</p>
+                            <p class="label-text">Students</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side ng Login Form -->
+            <div class="form-side">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2 class="display-text large">SIGN IN</h2>
+                        <p class="body-text large muted">
+                            Enter your credentials to access your club dashboard
+                        </p>
+                    </div>
+
+                    <form class="login-form" onsubmit="event.preventDefault(); navigateTo('club-selection');">
+                        <div class="form-group">
+                            <label class="label-text">EMAIL ADDRESS</label>
+                            <input type="email" placeholder="surname.studentnumber@university.edu" class="input-field" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label-text">PASSWORD</label>
+                            <input type="password" placeholder="••••••••" class="input-field" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox">
+                                <span class="body-text small">Remember me</span>
+                            </label>
+                            <a href="#" class="link-text small">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span class="display-text small">SIGN IN</span>
+                        </button>
+
+                        <p class="body-text center muted">
+                            Don't have an account?
+                            <a href="#" class="link-text">Request Access</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Club Selection (Screen) -->
+    <div id="club-selection-screen" class="screen">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="display-text medium">E-CLUB</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="avatar avatar-primary">
+                            <span class="label-text small">JD</span>
+                        </div>
+                        <div class="user-info">
+                            <p class="label-text small bold">John Doe</p>
+                            <p class="body-text tiny light">Student Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CLUBS!! :3 -->
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2 class="display-text mega">CLUB SELECTION</h2>
+                <p class="body-text large muted">
+                    Choose a club to access your dashboard and activities.
+                </p>
+            </div>
+
+            <div class="clubs-grid">    
+                <button type="button" class="club-card" onclick="window.location.href='CLUBS/DONAT/DONATICS.HTML'">
+                    <div class="club-icon bg-primary">
+                        <span class="display-text small">DONAT</span>
+                    </div>
+                    <h3 class="label-text medium bold">DEVELOPERS OF NEXT ADVANCE TECHNOLOGY</h3>
+                    <p class="body-text small muted">124 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-accent">
+                        <span class="display-text small">BES</span>
+                    </div>
+                    <h3 class="label-text medium bold">BUSINESS ENTHUSIAST SOCIETY</h3>
+                    <p class="body-text small muted">89 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-secondary">
+                        <span class="display-text small">STIMSS</span>
+                    </div>
+                    <h3 class="label-text medium bold">STI MATHEMATICS AND SCIENCE SOCIETY</h3>
+                    <p class="body-text small muted">156 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-primary">
+                        <span class="display-text small">TOPSOC</span>
+                    </div>
+                    <h3 class="label-text medium bold">TOP SOCIETY</h3>
+                    <p class="body-text small muted">67 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-accent">
+                        <span class="display-text small">THS</span>
+                    </div>
+                    <h3 class="label-text medium bold">YOUNG HOTELIERS SOCIETY</h3>
+                    <p class="body-text small muted">98 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-secondary">
+                        <span class="display-text small">CHEESS KNIGHT</span>
+                    </div>
+                    <h3 class="label-text medium bold">CACULUS HUMANITATIES ET LOCIALES SCIENTIARUM</h3>
+                    <p class="body-text small muted">142 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-primary">
+                        <span class="display-text small">APERTURE</span>
+                    </div>
+                    <h3 class="label-text medium bold">APERTURE MEDIA SHS</h3>
+                    <p class="body-text small muted">78 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-accent">
+                        <span class="display-text small">BSDT</span>
+                    </div>
+                    <h3 class="label-text medium bold">BAGONG SIBOL DANCE TROUPE</h3>
+                    <p class="body-text small muted">103 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-secondary">
+                        <span class="display-text small">MUSICA ORCA</span>
+                    </div>
+                    <h3 class="label-text medium bold">MUSICA ORCA SHS</h3>
+                    <p class="body-text small muted">134 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-primary">
+                        <span class="display-text small">YSTILLO TEATRO</span>
+                    </div>
+                    <h3 class="label-text medium bold">YSTILLO TEATRO SHS</h3>
+                    <p class="body-text small muted">211 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-accent">
+                        <span class="display-text small">LABAN SPORTS</span>
+                    </div>
+                    <h3 class="label-text medium bold">LEAGUE OF THE ATHLETES, THE BRAVE, AND THE NOBLE SPORTS</h3>
+                    <p class="body-text small muted">45 members</p>
+                </button>
+
+                <button class="club-card">
+                    <div class="club-icon bg-accent">
+                        <span class="display-text small">SOLDIERS</span>
+                    </div>
+                    <h3 class="label-text medium bold">STI MILITARY CLUB</h3>
+                    <p class="body-text small muted">45 members</p>
+                </button>
+            </div>
+        </main>
+    </div>
+
+
+    
+    <script>
+        // Navigation function
+        function navigateTo(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId + '-screen').classList.add('active');
+
+            
+        }
+    </script>
+</body>
+</html>
