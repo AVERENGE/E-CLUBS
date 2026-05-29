@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Messages — E-CLUB</title>
+	<link href="Message.CSS" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="messages-screen" class="screen active">
+	<header class="app-header">
+		<div class="header-content">
+			<div class="header-left">
+				<a href="../DONATICS.HTML" class="icon-btn back"><</a>
+				<h1 class="display-text medium">E-CLUB</h1>
+				<div class="breadcrumb">→ Messages</div>
+			</div>
+
+			<div class="header-right">
+				<div class="notification-bell">
+					<button class="icon-btn" onclick="toggleNotifications()">
+						<svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+						<span class="notification-badge"></span>
+					</button>
+					<div id="notifications-dropdown" class="notifications-dropdown">
+						<div class="notifications-header">
+							<h3 class="display-text small">NOTIFICATIONS</h3>
+							<button class="label-text tiny">MARK ALL AS READ</button>
+						</div>
+						<div class="notifications-list">
+							<div class="notification-item unread">
+								<div class="notification-dot"></div>
+								<div class="notification-content">
+									<p class="label-text small bold">New Task Assigned</p>
+									<p class="body-text tiny muted">You've been assigned "Design Club Poster"</p>
+									<span class="body-text tiny muted">5 min ago</span>
+								</div>
+							</div>
+							<div class="notification-item unread">
+								<div class="notification-dot"></div>
+								<div class="notification-content">
+									<p class="label-text small bold">Event Reminder</p>
+									<p class="body-text tiny muted">Weekly Meeting starts in 2 hours</p>
+									<span class="body-text tiny muted">1 hour ago</span>
+								</div>
+							</div>
+							<div class="notification-item">
+								<div class="notification-dot read"></div>
+								<div class="notification-content">
+									<p class="label-text small bold muted">Task Completed</p>
+									<p class="body-text tiny muted">Sarah marked "Update Website" as done</p>
+									<span class="body-text tiny muted">3 hours ago</span>
+								</div>
+							</div>
+						</div>
+						<div class="notifications-footer">
+							<button class="link-text small bold" onclick="showScreen('announcements-screen')">VIEW ALL NOTIFICATIONS →</button>
+						</div>
+					</div>
+				</div>
+				<div class="user-profile">
+					<div class="avatar avatar-primary">JD</div>
+					<div class="user-info">
+						<div class="name">John Doe</div>
+						<div class="role">Student Member</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main class="main">
+		<h1 class="page-title">MESSAGES</h1>
+		<p class="subtitle">Stay connected with your club members and advisors.</p>
+
+		<div class="messages-wrap">
+			<aside class="conversations">
+				<h2 class="conversations-title">CONVERSATIONS</h2>
+				<div class="search">
+					<input placeholder="Search messages..." />
+				</div>
+
+				<ul class="conv-list">
+					<li class="conv-item active">
+						<div class="cv-avatar">CO</div>
+						<div class="cv-body">
+							<div class="cv-title">Club Officers Group</div>
+							<div class="cv-sub">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</div>
+						</div>
+						<div class="cv-meta">
+							<div class="time">5 min ago</div>
+							<div class="badge">3</div>
+						</div>
+					</li>
+
+					<li class="conv-item">
+						<div class="cv-avatar ec">EC</div>
+						<div class="cv-body">
+							<div class="cv-title">Dr. Emily Chen</div>
+							<div class="cv-sub">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</div>
+						</div>
+						<div class="cv-meta">
+							<div class="time">1 hour ago</div>
+							<div class="badge small">1</div>
+						</div>
+					</li>
+
+					<li class="conv-item">
+						<div class="cv-avatar ev">EV</div>
+						<div class="cv-body">
+							<div class="cv-title">Event Committee</div>
+							<div class="cv-sub">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</div>
+						</div>
+						<div class="cv-meta">
+							<div class="time">2 hours ago</div>
+						</div>
+					</li>
+
+					<li class="conv-item">
+						<div class="cv-avatar sj">SJ</div>
+						<div class="cv-body">
+							<div class="cv-title">Sarah Johnson</div>
+							<div class="cv-sub">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</div>
+						</div>
+						<div class="cv-meta">
+							<div class="time">1 day ago</div>
+						</div>
+					</li>
+
+					<li class="conv-item">
+						<div class="cv-avatar mt">MT</div>
+						<div class="cv-body">
+							<div class="cv-title">Marketing Team</div>
+							<div class="cv-sub">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</div>
+						</div>
+						<div class="cv-meta">
+							<div class="time">2 days ago</div>
+						</div>
+					</li>
+				</ul>
+			</aside>
+
+			<section class="chat-panel">
+				<div class="chat-header">
+					<div class="chat-avatar">CO</div>
+					<div class="chat-title">Club Officers Group</div>
+				</div>
+
+				<div class="chat-window" id="chatWindow">
+					<div class="timecenter">10:32 AM</div>
+
+					<div class="message from-left">
+						<div class="msg-avatar">AM</div>
+						<div class="msg-bubble">
+							ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+						</div>
+						<div class="msg-time">10:35 AM</div>
+					</div>
+
+					<div class="message from-left">
+						<div class="msg-avatar sj">SJ</div>
+						<div class="msg-bubble">
+							ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+						</div>
+						<div class="msg-time">10:38 AM</div>
+					</div>
+
+					<div class="message from-right">
+						<div class="msg-bubble out">
+							ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+						</div>
+						<div class="msg-avatar jd">JD</div>
+						<div class="msg-time">10:40 AM</div>
+					</div>
+				</div>
+
+				<form class="composer" onsubmit="return false;">
+					<input class="composer-input" placeholder="Type a message..." />
+					<button class="send">SEND</button>
+				</form>
+			</section>
+		</div>
+	</main>
+
+		<script>
+		// Notifications dropdown toggle
+		function toggleNotifications(dropdownId = 'notifications-dropdown') {
+			const dropdown = document.getElementById(dropdownId);
+			if (!dropdown) return;
+			dropdown.classList.toggle('show');
+		}
+
+		// Close notifications when clicking outside
+		document.addEventListener('click', function(event) {
+			const openDropdowns = document.querySelectorAll('.notifications-dropdown.show');
+			openDropdowns.forEach(dropdown => {
+				const bell = dropdown.closest('.notification-bell');
+				if (bell && !bell.contains(event.target)) {
+					dropdown.classList.remove('show');
+				}
+			});
+		});
+
+		// Switch screens
+		function showScreen(screenId) {
+			const screens = document.querySelectorAll('.screen');
+			screens.forEach(screen => screen.classList.remove('active'));
+			const targetScreen = document.getElementById(screenId);
+			if (targetScreen) {
+				targetScreen.classList.add('active');
+			}
+		}
+
+		// Drag-to-highlight conversation items using pointer events
+		(function(){
+			const convList = document.querySelector('.conv-list');
+			if (!convList) return;
+			let isDragging = false;
+			let currentItem = convList.querySelector('.conv-item.active') || null;
+
+			function setActive(item){
+				if (!item) return;
+				const prev = convList.querySelector('.conv-item.active');
+				if (prev && prev !== item) prev.classList.remove('active');
+				if (item && !item.classList.contains('active')) item.classList.add('active');
+			}
+
+			function handlePointer(x,y){
+				const el = document.elementFromPoint(x,y);
+				if (!el) return;
+				const item = el.closest('.conv-item');
+				if (item && convList.contains(item)){
+					if (currentItem !== item){
+						currentItem = item;
+						setActive(item);
+					}
+				}
+			}
+
+			convList.addEventListener('pointerdown', (e)=>{
+				if (e.button !== 0) return;
+				isDragging = true;
+				convList.classList.add('dragging');
+				convList.setPointerCapture?.(e.pointerId);
+				handlePointer(e.clientX, e.clientY);
+			});
+
+			convList.addEventListener('pointermove', (e)=>{
+				if (!isDragging) return;
+				handlePointer(e.clientX, e.clientY);
+			});
+
+			document.addEventListener('pointerup', (e)=>{
+				if (!isDragging) return;
+				isDragging = false;
+				convList.classList.remove('dragging');
+				try{ convList.releasePointerCapture?.(e.pointerId); }catch(_){}
+			});
+
+			// Click to select
+			convList.addEventListener('click', (e)=>{
+				const item = e.target.closest('.conv-item');
+				if (item && convList.contains(item)) setActive(item);
+			});
+
+			// touch: prevent accidental text selection while dragging
+			convList.addEventListener('touchmove', ()=>{} , {passive:true});
+		})();
+		</script>
+
+		</body>
+		</html>
