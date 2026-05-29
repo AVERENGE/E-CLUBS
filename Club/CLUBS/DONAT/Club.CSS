@@ -587,6 +587,7 @@ body {
 .btn-secondary {
     background-color: var(--color-background);
     border: 2px solid var(--color-border);
+    color: var(--color-foreground);
 }
 
 .btn-secondary:hover {
