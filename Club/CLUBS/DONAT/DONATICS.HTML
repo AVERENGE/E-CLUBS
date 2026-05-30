@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ensure header profile link uses white text in dark header */
+        .app-header .user-profile,
+        .app-header .user-profile .label-text,
+        .app-header .user-profile .body-text {
+            color: #FFFFFF !important;
+            text-decoration: none !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Dashboard Screen -->
@@ -65,7 +74,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="user-profile">
+                    <a href="TASK_and_Message/Profile.HTML" class="user-profile">
                         <div class="avatar avatar-primary">
                             <span class="label-text small">JD</span>
                         </div>
@@ -73,7 +82,7 @@
                             <p class="label-text small bold">John Doe</p>
                             <p class="body-text tiny light">Student Member</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </header>
@@ -317,7 +326,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="user-profile">
+                    <a href="TASK_and_Message/Profile.HTML" class="user-profile">
                         <div class="avatar avatar-primary">
                             <span class="label-text small">JD</span>
                         </div>
@@ -325,7 +334,7 @@
                             <p class="label-text small bold">John Doe</p>
                             <p class="body-text tiny light">Student Member</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </header>
