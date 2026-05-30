@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-Club Profile</title>
+    <link rel="stylesheet" href="Profile.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+
+        <div class="header-content">
+
+            <div class="header-left">
+
+                <h1>E-CLUB</h1>
+
+            </div>
+
+            <div class="header-right">
+
+				<div class="notification-bell">
+					<button class="icon-btn" onclick="toggleNotifications()">
+						<svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+						<span class="notification-badge"></span>
+					</button>
+					<div id="notifications-dropdown" class="notifications-dropdown">
+						<div class="notifications-header">
+							<h3 class="display-text small">NOTIFICATIONS</h3>
+							<button class="label-text tiny">MARK ALL AS READ</button>
+						</div>
+						<div class="notifications-list">
+							<div class="notification-item unread">
+								<div class="notification-dot"></div>
+								<div class="notification-content">
+									<p class="label-text small bold">New Task Assigned</p>
+									<p class="body-text tiny muted">You've been assigned "Design Club Poster"</p>
+									<span class="body-text tiny muted">5 min ago</span>
+								</div>
+							</div>
+							<div class="notification-item unread">
+								<div class="notification-dot"></div>
+								<div class="notification-content">
+									<p class="label-text small bold">Event Reminder</p>
+									<p class="body-text tiny muted">Weekly Meeting starts in 2 hours</p>
+									<span class="body-text tiny muted">1 hour ago</span>
+								</div>
+							</div>
+							<div class="notification-item">
+								<div class="notification-dot read"></div>
+								<div class="notification-content">
+									<p class="label-text small bold muted">Task Completed</p>
+									<p class="body-text tiny muted">Sarah marked "Update Website" as done</p>
+									<span class="body-text tiny muted">3 hours ago</span>
+								</div>
+							</div>
+						</div>
+						<div class="notifications-footer">
+							<button class="link-text small bold" onclick="showScreen('announcements-screen')">VIEW ALL NOTIFICATIONS →</button>
+						</div>
+					</div>
+				</div>
+
+                <div class="user-profile">
+
+                    <div class="avatar">
+
+                        JD
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            John Doe
+                        </p>
+
+                        <small>
+                            Student Member
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="profile-container">
+
+        <div class="banner"></div>
+
+        <div class="profile-layout">
+
+            <div class="profile-card">
+
+                <div class="profile-image">
+
+                    <img src="https://i.pinimg.com/736x/a7/93/0a/a7930a39ee6e6cbe794e96ae0dbc5a0f.jpg" alt="Profile">
+
+                </div>
+
+                <h1>
+                    John Doe
+                </h1>
+
+                <p class="username">
+                    @doe.876543@ortigas-cainta.sti.edu.ph
+                </p>
+
+                <button class="edit-btn">
+                    Edit Profile
+                </button>
+
+                <div class="about-card">
+
+                    <h3>
+                        About
+                    </h3>
+
+                    <p>
+                        Student Member of DONATICS.
+                        Loves coding, designing and using E-CLUB.
+                    </p>
+
+                </div>
+
+                <div class="member-info">
+
+                    <h4>
+                        Position in Club
+                    </h4>
+
+                    <p>
+                        Munchkin
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="content-section">
+
+                <div class="tabs">
+
+                    <div class="tab active" data-target="board">
+
+                        Board
+
+                    </div>
+
+                    <div class="tab" data-target="activity">
+
+                        Activity
+
+                    </div>
+
+                </div>
+
+                <div class="content active-content" id="board">
+
+                    <div class="widget-card">
+
+                        <div class="widget-info">
+
+                            <h2>
+                                Favorite Game
+                            </h2>
+
+                            <h3>
+                                ROBLOX
+                            </h3>
+
+                            <p>
+                                Let everyone know why this is your favorite game.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="content" id="activity">
+
+                    <div class="widget-card">
+
+                        <div class="widget-info">
+
+                            <h3>
+                                Recent Activity
+                            </h3>
+
+                            <p>
+                                Completed Design Club Poster
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function toggleNotifications() {
+
+            const dropdown =
+                document.getElementById(
+                    "notifications-dropdown"
+                );
+
+            dropdown.classList.toggle(
+                "show"
+            );
+
+        }
+
+        const tabs =
+            document.querySelectorAll(".tab");
+
+        const contents =
+            document.querySelectorAll(".content");
+
+        tabs.forEach(tab => {
+
+            tab.addEventListener("click", () => {
+
+                tabs.forEach(t =>
+                    t.classList.remove("active")
+                );
+
+                tab.classList.add("active");
+
+                contents.forEach(content => {
+
+                    content.classList.remove(
+                        "active-content"
+                    );
+
+                });
+
+                const target =
+                    tab.getAttribute(
+                        "data-target"
+                    );
+
+                document
+                    .getElementById(target)
+                    .classList.add(
+                        "active-content"
+                    );
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
